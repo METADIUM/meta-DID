@@ -41,8 +41,8 @@ Example `meta` DIDs:
 	{
 		"@context": "https://w3id.org/did/v1",
 		"id": "did:meta:testnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3",
-        "created": "2019-03-25T12:00:00Z",
-        "updated": "2019-04-25T12:00:00Z",
+        	"created": "2019-03-25T12:00:00Z",
+        	"updated": "2019-04-25T12:00:00Z",
 		"publicKey": [{
 			"id": "key-1",
 			"type": ["ECDSA", "secp256r1", "MetaManagementKey"],
@@ -52,7 +52,7 @@ Example `meta` DIDs:
 			"type": ["ECDSA", "secp256r1", "MetaServiceKey"],
 			"publicKeyHash": "FB2133404Da4713963EDc84dE0f62a80cF4356d9"
 		}, {
-            "id": "key-3",
+            		"id": "key-3",
 			"type": ["ECDSA", "secp256r1", "MetaServiceKey"],
 			"publicKeyHash": "e835bFaaf93b056D0c19AAc38278dc5163f06F15"
 		}],
@@ -61,11 +61,11 @@ Example `meta` DIDs:
 			"publicKey": "key-1"
 		},
 		"service": [{
-            "name": "facebook",
+            		"name": "facebook",
 			"type": ["ECDSA", "secp256r1"],
 			"publicKey": "key-2"
 		}, {
-            "name": "google",
+            		"name": "google",
 			"type": ["ECDSA", "secp256r1"],
 			"publicKey": "key-3"
 		}]
@@ -83,8 +83,8 @@ The definition of the `meta` JSON-LD context is:
 	{
 		"@context":
 		{
-			"METAManagementKey": "{TDA}",
-			"METAServiceKey": "{TDA}"
+			"METAManagementKey": "{TBA}",
+			"METAServiceKey": "{TBA}"
 		}
 	}
 
