@@ -61,11 +61,11 @@ Example `meta` DIDs:
 			"publicKey": "key-1"
 		},
 		"service": [{
-            		"name": "facebook",
+			"name": "facebook",
 			"type": ["ECDSA", "secp256r1"],
 			"publicKey": "key-2"
 		}, {
-            		"name": "google",
+			"name": "google",
 			"type": ["ECDSA", "secp256r1"],
 			"publicKey": "key-3"
 		}]
