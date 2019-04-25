@@ -13,7 +13,7 @@ Metadium DID Method Specification
     1. [Create (Register)](#create)
     2. [Read (Resolve)](#read)
     3. [Update](#update)
-    4. [delete](#delete)
+    4. [Delete](#delete)
 6. [Security](#security)
 7. [Privacy](#privacy)
 8. [References](#references)
