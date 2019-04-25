@@ -34,26 +34,26 @@ A DID that uses this method MUST begin with the following prefix: `did:meta`. Pe
 # Method Specific Identifier <a name="identifier"></a>
 
 The method specific identifier is composed of an optional Metadium network identifier with a `:` separator, followed by a Hex-encoded Metadium Identifier Number (MIN) (without a `0x` prefix).
-
+```
 	meta-did = "did:meta:" + meta-specific-idstring
 	meta-specific-idstring = meta-network + ":" + MIN
 	meta-network = "mainnet" | "testnet"
 	meta-address  = 40*HEXDIG
-
+```
 The MIN is case-insensitive, but it is recommended to use mixed-case checksum for address encoding (see [**[3]**](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-55.md)).
 
 ## Example <a name="example1"></a>
 
 Example `meta` DIDs:
-
+```
  * `did:meta:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3`
  * `did:meta:mainnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3`
  * `did:meta:testnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3`
-
+```
 # DID Document <a name="document"></a>
 
 ## Example <a name="example2"></a>
-
+```
 	{
 		"@context": "https://w3id.org/did/v1",
 		"id": "did:meta:testnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3",
@@ -86,7 +86,7 @@ Example `meta` DIDs:
 			"publicKey": "key-3"
 		}]
 	}
-
+```
 We use the ISO 8601 [**[4]**](https://www.iso.org/iso-8601-date-and-time-format.html) basic and extended notations for timestamp.
 To make an public key hash from the public key, all we need to do is to apply Keccak-256 to the key and then take the last 20 bytes of the result. No Base58 or any other conversion.
 
@@ -95,7 +95,7 @@ To make an public key hash from the public key, all we need to do is to apply Ke
 The `meta` method defines additional JSON-LD terms for the supported Metadium key types `MANAGEMENT`, and `SERVICE`.
 
 The definition of the `meta` JSON-LD context is:
-
+```
 	{
 		"@context":
 		{
@@ -103,7 +103,7 @@ The definition of the `meta` JSON-LD context is:
 			"METAServiceKey": "{TBA}"
 		}
 	}
-
+```
 Note: Other type of keys, such as `recovery`, `resolver`, and `provider` of a DID Document may be supported in future versions of this specification.
 
 # CRUD Operation Definitions <a name="crud"></a>
@@ -114,9 +114,9 @@ In order to create a `meta` DID, a Metadium Identity Manager (MIM) smart contrac
 MIM is compliant with the EIP1484 [**[5]**](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1484.md) standard, and MSM is service key resolver.
 
 `meta` DID creation is done by submitting a transaction to the MIM smart contract invoking the following method:
-
-    `function createIdentity(address recoveryAddress, address[] memory providers, address[] memory resolvers) public returns (uint min);`
-
+```
+function createIdentity(address recoveryAddress, address[] memory providers, address[] memory resolvers) public returns (uint min);
+```
 This will generate the corresponding id-string (MIN) and assign control to the caller address. Identities are denominated by MINs, which are unique but otherwise uninformative.
 
 ## Read (Resolve) <a name="read"></a>
@@ -139,10 +139,10 @@ Note: Service endpoints and other elements of a DID Document may be supported in
 ## Update <a name="update"></a>
 
 The DID Document may be updated by invoking the relevant MSM smart contract functions as follows:
-
+```
  * `function addKey(address _key) public returns (bool success);`
  * `function removeKey(address _key) public returns (bool success);`
-
+```
 ## Delete (Revoke) <a name="delete"></a>
 
 Revoking the DID can be supported by executing a `function destructIdentity(uint min)` operation that is part of the MIM smart contract. This will remove the MIM and MSM's storage and code from the state, effectively marking the DID as revoked.
