@@ -16,8 +16,7 @@ Metadium DID Method Specification
     4. [Delete](#delete)
 6. [Security](#security)
 7. [Privacy](#privacy)
-8. [Performance](#performance)
-9. [References](#references)
+8. [References](#references)
 
 Metadium is the next-generation identity system powered by blockchain technology. Metadium Decentralized Identifiers is a distributed identifier designed to provide a way for a community connected to the Metadium Ecosystem to uniquely identify an individual, organization, or digital device. The role of a Metadium DID is to provide a service that supports user-authentication and personal information verification. 
 
