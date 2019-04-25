@@ -145,7 +145,10 @@ function removeKey(address _key) public returns (bool success);
 ```
 ## Delete (Revoke) <a name="delete"></a>
 
-Revoking the DID can be supported by executing a `function destructIdentity(uint min)` operation that is part of the MIM smart contract. This will remove the MIM and MSM's storage and code from the state, effectively marking the DID as revoked.
+Revoking the DID can be supported by executing a `destructIdentity` operation that is part of the MIM smart contract. This will remove the MIM and MSM's storage and code from the state, effectively marking the DID as revoked.
+```
+function destructIdentity(uint min)
+```
 
 # Security Considerations <a name="security"></a>
 
