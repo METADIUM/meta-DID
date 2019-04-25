@@ -38,7 +38,7 @@ The method specific identifier is composed of an optional Metadium network ident
 meta-did = "did:meta:" + meta-specific-idstring
 meta-specific-idstring = meta-network + ":" + MIN
 meta-network = "mainnet" | "testnet"
-meta-address  = 40*HEXDIG
+meta-address = 40*HEXDIG
 ```
 The MIN is case-insensitive, but it is recommended to use mixed-case checksum for address encoding (see [**[3]**](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-55.md)).
 
