@@ -111,7 +111,7 @@ Note: Other type of keys, such as `recovery`, `resolver`, and `provider` of a DI
 ## Create (Register) <a name="create"></a>
 
 In order to create a `meta` DID, a Metadium Identity Manager (MIM) smart contract, and Metadium Service Manager (MSM) smart contract must be deployed on Metadium blockchain.
-MIM is compliant with the EIP1484 [**[5]**](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1484.md) standard, and MSM is service key resolver.
+MIM is compliant with the EIP1484 [**[5]**](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1484.md) standard, and MSM is a default service key resolver.
 
 `meta` DID creation is done by submitting a transaction to the MIM smart contract invoking the following method:
 ```
@@ -140,14 +140,14 @@ Note: Service endpoints and other elements of a DID Document may be supported in
 
 The DID Document may be updated by invoking the relevant MSM smart contract functions as follows:
 ```
-function addKey(address _key) public returns (bool success);
-function removeKey(address _key) public returns (bool success);
+function addKey(address _key, uint min)
+function removeKey(address _key, uint min)
 ```
 ## Delete (Revoke) <a name="delete"></a>
 
 Revoking the DID can be supported by executing a `destructIdentity` operation that is part of the MIM smart contract. This will remove the MIM and MSM's storage and code from the state, effectively marking the DID as revoked.
 ```
-function destructIdentity(uint min) public returns (bool success);
+function destructIdentity(uint min)
 ```
 
 # Security Considerations <a name="security"></a>
