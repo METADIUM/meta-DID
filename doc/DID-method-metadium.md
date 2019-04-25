@@ -140,7 +140,7 @@ Note: Service endpoints and other elements of a DID Document may be supported in
 
 The DID Document may be updated by invoking the relevant MSM smart contract functions as follows:
 ```
-function addKey(address _key, uint min)
+function addKey(address _key, uint min, bytes name)
 function removeKey(address _key, uint min)
 ```
 ## Delete (Revoke) <a name="delete"></a>
