@@ -72,10 +72,10 @@ did:meta:testnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3
 		"type": ["ECDSA", "secp256r1", "MetaServiceKey"],
 		"publicKeyHash": "e835bFaaf93b056D0c19AAc38278dc5163f06F15"
 	}],
-	"authentication": {
+	"authentication": [{
 		"type": ["ECDSA", "secp256r1"],
 		"publicKey": "key-1"
-	},
+	}],
 	"service": [{
 		"name": "facebook",
 		"type": ["ECDSA", "secp256r1"],
@@ -147,7 +147,7 @@ function removeKey(address _key) public returns (bool success);
 
 Revoking the DID can be supported by executing a `destructIdentity` operation that is part of the MIM smart contract. This will remove the MIM and MSM's storage and code from the state, effectively marking the DID as revoked.
 ```
-function destructIdentity(uint min)
+function destructIdentity(uint min) public returns (bool success);
 ```
 
 # Security Considerations <a name="security"></a>
