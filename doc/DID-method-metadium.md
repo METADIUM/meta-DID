@@ -16,7 +16,8 @@ Metadium DID Method Specification
     4. [Delete](#delete)
 6. [Security](#security)
 7. [Privacy](#privacy)
-8. [References](#references)
+8. [Performance](#performance)
+9. [References](#references)
 
 Metadium is the next-generation identity system powered by blockchain technology. Metadium Decentralized Identifiers is a distributed identifier designed to provide a way for a community connected to the Metadium Ecosystem to uniquely identify an individual, organization, or digital device. The role of a Metadium DID is to provide a service that supports user-authentication and personal information verification. 
 
@@ -62,15 +63,15 @@ did:meta:testnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3
 	"publicKey": [{
 		"id": "key-1",
 		"type": ["ECDSA", "secp256r1", "MetaManagementKey"],
-		"publicKeyHash": "13F69b6e9d008f2B75437064E1E58EaF597c9ECE"
+		"publicKeyHex": "0262901ea20b7013db824ab40ded34b470650d0d34cee667a7ef1d384991be3717"
 	}, {
 		"id": "key-2",
 		"type": ["ECDSA", "secp256r1", "MetaServiceKey"],
-		"publicKeyHash": "FB2133404Da4713963EDc84dE0f62a80cF4356d9"
+		"publicKeyHex": "03510879543714e174edfaef9c390dd88c951e13467bc9cecec05facc48dafb95f"
 	}, {
 		"id": "key-3",
 		"type": ["ECDSA", "secp256r1", "MetaServiceKey"],
-		"publicKeyHash": "e835bFaaf93b056D0c19AAc38278dc5163f06F15"
+		"publicKeyHex": "038896e677af55c683cc70442592c48ec6c81fb97612ffad18302dbc5099cbac14"
 	}],
 	"authentication": [{
 		"type": ["ECDSA", "secp256r1"],
