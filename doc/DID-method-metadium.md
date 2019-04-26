@@ -62,28 +62,32 @@ did:meta:testnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3
 	"publicKey": [{
 		"id": "key-1",
 		"type": ["ECDSA", "secp256r1", "MetaManagementKey"],
+		"controller": "did:meta:testnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3",
 		"publicKeyHex": "0262901ea20b7013db824ab40ded34b470650d0d34cee667a7ef1d384991be3717"
 	}, {
 		"id": "key-2",
 		"type": ["ECDSA", "secp256r1", "MetaServiceKey"],
+		"controller": "did:meta:testnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3",
 		"publicKeyHex": "03510879543714e174edfaef9c390dd88c951e13467bc9cecec05facc48dafb95f"
 	}, {
 		"id": "key-3",
 		"type": ["ECDSA", "secp256r1", "MetaServiceKey"],
+		"controller": "did:meta:testnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3",
 		"publicKeyHex": "038896e677af55c683cc70442592c48ec6c81fb97612ffad18302dbc5099cbac14"
 	}],
 	"authentication": [{
+		"id": "key-1",
 		"type": ["ECDSA", "secp256r1"],
-		"publicKey": "key-1"
+		"controller": "did:meta:testnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3",
 	}],
 	"service": [{
-		"name": "facebook",
-		"type": ["ECDSA", "secp256r1"],
-		"publicKey": "key-2"
+		"id": "key-2",
+		"type": "3rdPartyService",
+		"serviceEndpoint": "https://www.facebook.com"
 	}, {
-		"name": "google",
-		"type": ["ECDSA", "secp256r1"],
-		"publicKey": "key-3"
+		"id": "key-3",
+		"type": "3rdPartyService",
+		"serviceEndpoint": "https://www.google.com"
 	}]
 }
 ```
