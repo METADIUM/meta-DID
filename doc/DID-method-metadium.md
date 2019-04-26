@@ -156,7 +156,7 @@ function destructIdentity(uint min)
 
 # Security Considerations <a name="security"></a>
 
-When a user creates and registers its own `meta` did in the metadium blockchain, he (or she) can selectively register either recovery key or provider key. 
+When a user creates and registers its own `meta` DID in the metadium blockchain, he (or she) can selectively register either recovery key or provider key. 
 - Recovery key is a Metadium address (either an external account or smart contract) that can be used to recover lost Identities when you accidentally lose your private key. The recovery key must be set to a different value than the management key. It is safest to physically and logically allow a trusted third party, separate from the user, to archive the recovery key.
 - The provider key is the Metadium address (external account or smart contract) that is authorized to be used on behalf of the management key. Since the provider key is allowed to operate in place of the management key, the provider key must be registered only when the user needs it, not at the time of distribution. Also, do not forget to delete the provider key when the proxy operation is complete.
 
