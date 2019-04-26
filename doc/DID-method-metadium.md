@@ -156,11 +156,15 @@ function destructIdentity(uint min)
 
 # Security Considerations <a name="security"></a>
 
-TODO
+When users create and register their own meta-dids in the metadium blockchain, they can register both recovery and provider keys optionally. 
+
+- Recovery key is a Metadium address (either an external account or smart contract) that can be used to recover lost Identities when you accidentally lose your private key. The recovery key should be different from the management key for your safety, and it is recommended to entrust a trusted third party which is physically and logically separate from user agent.
+
+- Provider key is a Metadium address authorized to act on behalf of Identities. Provides exist to facilitate user adoption by making it easier to manager Identities. However, since the provider key has been authorized to operate in place of the management key, the provider key should be registered only when the user needs it, rather than registering at the time of distribution. Moreover, don't forget to delete the provider key when the proxy work has been completed.
 
 # Privacy Considerations <a name="privacy"></a>
 
-TODO
+- The Metadium blockchain will have a claim / achievement structure in the next step. A claim is a verifiable credential, often composed of a hash of personal information. Since GDPR protects pseudonymized data because of the "linkability" of an unreadable hash, even if it is a claim, it must be stored in a blockchain in a form in which personal information cannot be deduced.
 
 # References <a name="references"></a>
 ----------
