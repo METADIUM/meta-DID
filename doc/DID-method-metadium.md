@@ -156,15 +156,13 @@ function destructIdentity(uint min)
 
 # Security Considerations <a name="security"></a>
 
-When users create and register their own meta-dids in the metadium blockchain, they can register both recovery and provider keys optionally. 
-
-- Recovery key is a Metadium address (either an external account or smart contract) that can be used to recover lost Identities when you accidentally lose your private key. The recovery key should be different from the management key for your safety, and it is recommended to entrust a trusted third party which is physically and logically separate from user agent.
-
-- Provider key is a Metadium address authorized to act on behalf of Identities. Provides exist to facilitate user adoption by making it easier to manager Identities. However, since the provider key has been authorized to operate in place of the management key, the provider key should be registered only when the user needs it, rather than registering at the time of distribution. Moreover, don't forget to delete the provider key when the proxy work has been completed.
+When a user creates and registers its own meta-did in the metadium blockchain, he or she can selectively register the recovery key and the provider key. 
+- Recovery key is a Metadium address (either an external account or smart contract) that can be used to recover lost Identities when you accidentally lose your private key. The recovery key must be set to a different value than the management key. It is safest to physically and logically allow a trusted third party, separate from the user, to archive the recovery key.
+- The provider key is the Metadium address (external account or smart contract) that is authorized to be used on behalf of the management key. Since the provider key is allowed to operate in place of the management key, the provider key must be registered only when the user needs it, not at the time of distribution. Also, do not forget to delete the provider key when the proxy operation is complete.
 
 # Privacy Considerations <a name="privacy"></a>
 
-- The Metadium blockchain will have a claim / achievement structure in the next step. A claim is a verifiable credential, often composed of a hash of personal information. Since GDPR protects pseudonymized data because of the "linkability" of an unreadable hash, even if it is a claim, it must be stored in a blockchain in a form in which personal information cannot be deduced.
+- The Metadium block chain has a claim / achievement structure in the next development phase. Claims are verifiable credentials, often consisting of a hash of personal information. GDPR protects pseudonymized data because of the "linkability" of an unreadable hash. Therefore, claims must be stored in a blockchain in such a way that personal information can not be inferred from hash-processed claims.
 
 # References <a name="references"></a>
 ----------
