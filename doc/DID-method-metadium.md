@@ -56,40 +56,51 @@ did:meta:testnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3
 ```
 {
 	"@context": "https://w3id.org/did/v1",
-	"id": "did:meta:testnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3",
+	"id": "did:meta:testnet:fd7022b4B4c...85ad196b3db3",
 	"created": "2019-03-25T12:00:00Z",
 	"updated": "2019-04-25T12:00:00Z",
 	"publicKey": [{
-		"id": "key-1",
-		"type": ["ECDSA", "secp256r1", "MetaManagementKey"],
-		"controller": "did:meta:testnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3",
-		"publicKeyHex": "0262901ea20b7013db824ab40ded34b470650d0d34cee667a7ef1d384991be3717"
-	}, {
-		"id": "key-2",
-		"type": ["ECDSA", "secp256r1", "MetaServiceKey"],
-		"controller": "did:meta:testnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3",
-		"publicKeyHex": "03510879543714e174edfaef9c390dd88c951e13467bc9cecec05facc48dafb95f"
-	}, {
-		"id": "key-3",
-		"type": ["ECDSA", "secp256r1", "MetaServiceKey"],
-		"controller": "did:meta:testnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3",
-		"publicKeyHex": "038896e677af55c683cc70442592c48ec6c81fb97612ffad18302dbc5099cbac14"
-	}],
+		"id": "MetaManagementKey-1",
+		"type": "EdDsaSAPublicKeySecp256k1",
+		"publicKeyHash": "e3FA89810623759d53361a297305c391c8280e66"
+	       },
+	       {
+		"id": "MetaServiceKey-1",
+		"type": "EdDsaSAPublicKeySecp256k1",
+		"publicKeyHash": "5A0b54D5dc17e0AadC383d2db43B0a0D3E029c4c"
+	       }
+	],
 	"authentication": [{
-		"id": "key-1",
-		"type": ["ECDSA", "secp256r1"],
-		"controller": "did:meta:testnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3",
-	}],
+		"id": "MetaManagementKey-1",
+		"type": "EdDsaSAPublicKeySecp256k1",
+		"publicKeyHex": "034f355bdcb7cc0af728ef3cc...59ab0f0b704075871aa"
+	       }
+	],
 	"service": [{
-		"id": "key-2",
+		"id": "MetaServiceKey-1",
 		"type": "3rdPartyService",
-		"serviceEndpoint": "https://www.facebook.com"
-	}, {
-		"id": "key-3",
-		"type": "3rdPartyService",
-		"serviceEndpoint": "https://www.google.com"
-	}]
+		"serviceEndpoint": {
+			"@context": "https://schema.identity.foundation/0.1",
+			"@type": "HostServiceEndpoint",
+			"locations": [
+				"https://testcustody.coinplug.com",
+			]
+		}
+	       },
+	       {
+		"id": "IdentityHub",
+		"type": "IdentityHub",
+		"serviceEndpoint": {
+			"@context": "https://schema.identity.foundation/0.1",
+			"@type": "UserServiceEndpoint",
+			"instances": [
+				"did:meta:testnet:6ce8328a...88120dD65B8"
+			]
+		}
+	       }
+	]
 }
+
 ```
 We use the ISO 8601 [**[4]**](https://www.iso.org/iso-8601-date-and-time-format.html) basic and extended notations for timestamp.
 To make an public key hash from the public key, all we need to do is to apply Keccak-256 to the key and then take the last 20 bytes of the result. No Base58 or any other conversion.
