@@ -1,6 +1,6 @@
 Metadium DID Method Specification
 =================
-25th April 2019
+30th May 2019
 
 # Table of Contents
 1. [DID Method Name](#name)
@@ -100,7 +100,6 @@ did:meta:testnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3
 	       }
 	]
 }
-
 ```
 We use the ISO 8601 [**[4]**](https://www.iso.org/iso-8601-date-and-time-format.html) basic and extended notations for timestamp.
 To make an public key hash from the public key, all we need to do is to apply Keccak-256 to the key and then take the last 20 bytes of the result. No Base58 or any other conversion.
