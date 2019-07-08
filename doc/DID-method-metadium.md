@@ -1,6 +1,6 @@
 Metadium DID Method Specification
 =================
-30th May 2019
+8th July 2019
 
 # Table of Contents
 1. [DID Method Name](#name)
@@ -46,9 +46,9 @@ The MIN is case-insensitive, but it is recommended to use mixed-case checksum fo
 
 Example `meta` DIDs:
 ```
-did:meta:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3
-did:meta:mainnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3
-did:meta:testnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3
+did:meta:000000000000fd7022b4B4cAd5eF33723d2C549c85ad196b3db3
+did:meta:mainnet:000000000000fd7022b4B4cAd5eF33723d2C549c85ad196b3db3
+did:meta:testnet:000000000000fd7022b4B4cAd5eF33723d2C549c85ad196b3db3
 ```
 # DID Document <a name="document"></a>
 
@@ -56,47 +56,30 @@ did:meta:testnet:fd7022b4B4cAd5eF33723d2C549c85ad196b3db3
 ```
 {
 	"@context": "https://w3id.org/did/v1",
-	"id": "did:meta:testnet:fd7022b4B4c...85ad196b3db3",
+	"id": "did:meta:testnet:000000000000fd7022b4B4c...85ad196b3db3",
 	"created": "2019-03-25T12:00:00Z",
 	"updated": "2019-04-25T12:00:00Z",
 	"publicKey": [{
-		"id": "MetaManagementKey-1",
-		"type": "EdDsaSAPublicKeySecp256k1",
+		"id": "#MetaManagementKey#1",
+		"type": "Secp256k1VerificationKey2018",
 		"publicKeyHash": "e3FA89810623759d53361a297305c391c8280e66"
 	       },
 	       {
-		"id": "MetaServiceKey-1",
-		"type": "EdDsaSAPublicKeySecp256k1",
+		"id": "#MetaServiceKey#1",
+		"type": "Secp256k1VerificationKey2018",
 		"publicKeyHash": "5A0b54D5dc17e0AadC383d2db43B0a0D3E029c4c"
 	       }
 	],
 	"authentication": [{
-		"id": "MetaManagementKey-1",
-		"type": "EdDsaSAPublicKeySecp256k1",
+		"id": "#MetaManagementKey#1",
+		"type": "Secp256k1VerificationKey2018",
 		"publicKeyHex": "034f355bdcb7cc0af728ef3cc...59ab0f0b704075871aa"
 	       }
 	],
 	"service": [{
-		"id": "MetaServiceKey-1",
-		"type": "3rdPartyService",
-		"serviceEndpoint": {
-			"@context": "https://schema.identity.foundation/0.1",
-			"@type": "HostServiceEndpoint",
-			"locations": [
-				"https://testcustody.coinplug.com",
-			]
-		}
-	       },
-	       {
-		"id": "IdentityHub",
+		"id": "#MetaManagementKey#1",
 		"type": "IdentityHub",
-		"serviceEndpoint": {
-			"@context": "https://schema.identity.foundation/0.1",
-			"@type": "UserServiceEndpoint",
-			"instances": [
-				"did:meta:testnet:6ce8328a...88120dD65B8"
-			]
-		}
+		"serviceEndpoint": "https://identityhub.metadium.com"
 	       }
 	]
 }
@@ -141,12 +124,12 @@ To construct a valid DID document from an `meta` DID, the following steps are pe
 1. Invoke the `function getIdentity(uint min)` function to MIM for getting `MANAGEMENT` key.
 1. For each returned key address, look up the associated key.
 1. For each `MANAGEMENT` public key hash:
-	1. Add a `publicKey` element of type `ECDSA`, `secp256r1` and `MetaManagementKey` to the DID Document.
-    1. Add an `authentication` element of type `ECDSA`, and `secp256r1`, referencing this `publicKey`.
+	1. Add a `publicKey` element of type `Secp256k1VerificationKey2018` and `MetaManagementKey` to the DID Document.
+    1. Add an `authentication` element of type `Secp256k1VerificationKey2018`, referencing this `publicKey`.
 1. Invoke the `function getKeys(uint min)` function to MSM for getting  for `SERVICE` key.
 1. For each `SERVICE` public key hash:
-	1. Add a `publicKey` element of type `ECDSA`, `secp256r1` and `MetaServiceKey` to the DID Document.
-	1. Add an `service` element of type  `ECDSA`, `secp256r1`, referencing this `publicKey`.
+	1. Add a `publicKey` element of type `Secp256k1VerificationKey2018` and `MetaServiceKey` to the DID Document.
+	1. Add an `service` element of type  `Secp256k1VerificationKey2018`, referencing this `publicKey`.
 
 Note: Service endpoints and other elements of a DID Document may be supported in future versions of this specification.
 
