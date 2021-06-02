@@ -38,7 +38,7 @@ The method specific identifier is composed of an optional Metadium network ident
 meta-did = "did:meta:" + meta-specific-idstring
 meta-specific-idstring = meta-network + ":" + MIN
 meta-network = "mainnet" | "testnet"
-meta-address = 40*HEXDIG
+meta-address = 64*HEXDIG
 ```
 The MIN is case-insensitive, but it is recommended to use mixed-case checksum for address encoding (see [**[3]**](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-55.md)).
 
@@ -46,9 +46,9 @@ The MIN is case-insensitive, but it is recommended to use mixed-case checksum fo
 
 Example `meta` DIDs:
 ```
-did:meta:000000000000fd7022b4B4cAd5eF33723d2C549c85ad196b3db3
-did:meta:mainnet:000000000000fd7022b4B4cAd5eF33723d2C549c85ad196b3db3
-did:meta:testnet:000000000000fd7022b4B4cAd5eF33723d2C549c85ad196b3db3
+did:meta:000000000000000000000000000000000000000000000000000000000000c141
+did:meta:mainnet:000000000000000000000000000000000000000000000000000000000000c141
+did:meta:testnet:000000000000000000000000000000000000000000000000000000000000c141
 ```
 # DID Document <a name="document"></a>
 
